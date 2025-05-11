@@ -1,3 +1,4 @@
+
 /* Reset et base */
 * {
     margin: 0;
@@ -26,7 +27,6 @@ body {
     z-index: -1;
 }
 
-
 /* Conteneur principal */
 .container {
     display: flex;
@@ -39,6 +39,11 @@ body {
 }
 
 /* Nom du restaurant */
+.restaurant-name-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
 .restaurant-name {
     font-family: 'Great Vibes', cursive;
     font-size: 6rem;
@@ -46,6 +51,11 @@ body {
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-name:hover {
+    transform: scale(1.05);
 }
 
 /* Slogan */
@@ -294,3 +304,5 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
