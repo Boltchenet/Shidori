@@ -35,16 +35,22 @@ body {
     display: inline-block;
 }
 
+/* Ajoutez ces règles à la section existante pour .catalogue-title */
 .catalogue-title {
     font-family: 'Great Vibes', cursive;
     font-size: 4rem;
     color: #e8e8e8;
     margin-bottom: 0.5rem;
     text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajouté pour correspondre au style du menu */
+    letter-spacing: 2px; /* Ajouté pour correspondre au style du menu */
+    transition: transform 0.3s ease; /* Ajout pour l'animation */
+    display: inline-block; /* Nécessaire pour la transformation */
 }
 
 .restaurant-name-link:hover .catalogue-title {
     color: #e8e8e8;
+    transform: scale(1.05); /* Effet d'agrandissement */
 }
 
 .slogan {
