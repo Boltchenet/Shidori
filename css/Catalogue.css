@@ -30,11 +30,21 @@ body {
     margin-bottom: 3rem;
 }
 
+.restaurant-name-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
 .catalogue-title {
     font-family: 'Great Vibes', cursive;
     font-size: 4rem;
     color: #e8e8e8;
     margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.restaurant-name-link:hover .catalogue-title {
+    color: #e8e8e8;
 }
 
 .slogan {
