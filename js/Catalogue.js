@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Charger toutes les catégories disponibles
     loadCategory('entrees');
+    loadCategory('sashimis');
     loadCategory('sushis');
     loadCategory('plats-chauds');
+    loadCategory('brochettes');
+    loadCategory('alcool');
+    loadCategory('boissons');
     loadCategory('desserts');
 });
 
