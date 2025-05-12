@@ -56,6 +56,7 @@ const menuData = {
 // Variables d'état
 let currentCategory = 'entrees';
 let cart = [];
+let quantities = {};
 let remainingItems = 20;
 let currentRound = 1;
 const maxRounds = 5;
@@ -82,7 +83,11 @@ function loadCategory(category) {
             <div class="dish-image" style="background-image: url('${dish.image}')"></div>
             <h3 class="dish-name">${dish.name}</h3>
             <p class="dish-desc">${dish.desc}</p>
-            <button class="add-to-cart" data-id="${dish.id}">Ajouter</button>
+            <div class="quantity-selector">
+                <button class="quantity-btn minus" data-id="${dish.id}">-</button>
+                <span class="quantity" data-id="${dish.id}">${quantities[dish.id] || 0}</span>
+                <button class="quantity-btn plus" data-id="${dish.id}">+</button>
+            </div>
         `;
         dishesList.appendChild(dishCard);
     });
@@ -100,11 +105,14 @@ function setupEventListeners() {
         });
     });
     
-    // Ajout au panier
+    // Gestion des quantités
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-to-cart')) {
-            const dishId = parseInt(e.target.dataset.id);
-            addToCart(dishId);
+        const dishId = parseInt(e.target.dataset.id);
+        
+        if (e.target.classList.contains('plus')) {
+            adjustQuantity(dishId, 1);
+        } else if (e.target.classList.contains('minus')) {
+            adjustQuantity(dishId, -1);
         }
     });
     
@@ -112,21 +120,46 @@ function setupEventListeners() {
     document.getElementById('validate-btn').addEventListener('click', validateRound);
 }
 
-// Ajouter un plat au panier
-function addToCart(dishId) {
-    if (remainingItems <= 0) return;
+// Fonction pour ajuster les quantités
+function adjustQuantity(dishId, change) {
+    if (!quantities[dishId]) quantities[dishId] = 0;
     
-    let dish;
-    for (const category in menuData) {
-        dish = menuData[category].find(item => item.id === dishId);
-        if (dish) break;
+    const newQuantity = quantities[dishId] + change;
+    
+    if (newQuantity >= 0 && (change > 0 ? (remainingItems > 0) : true)) {
+        quantities[dishId] = newQuantity;
+        updateQuantityDisplay(dishId);
+        
+        // Trouver le plat correspondant
+        let dish;
+        for (const category in menuData) {
+            dish = menuData[category].find(item => item.id === dishId);
+            if (dish) break;
+        }
+        
+        // Mettre à jour le panier
+        if (dish) {
+            if (change > 0) {
+                cart.push(dish);
+                remainingItems--;
+            } else {
+                const index = cart.findIndex(item => item.id === dishId);
+                if (index !== -1) {
+                    cart.splice(index, 1);
+                    remainingItems++;
+                }
+            }
+            updateCartSummary();
+            updateCartItems();
+        }
     }
-    
-    if (dish) {
-        cart.push(dish);
-        remainingItems--;
-        updateCartSummary();
-        updateCartItems();
+}
+
+// Mettre à jour l'affichage de la quantité
+function updateQuantityDisplay(dishId) {
+    const quantityElement = document.querySelector(`.quantity[data-id="${dishId}"]`);
+    if (quantityElement) {
+        quantityElement.textContent = quantities[dishId] || 0;
     }
 }
 
@@ -142,11 +175,40 @@ function updateCartItems() {
     const cartItems = document.getElementById('cart-items');
     cartItems.innerHTML = '';
     
+    // Compter les occurrences de chaque plat
+    const itemCounts = {};
     cart.forEach(item => {
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-        cartItem.innerHTML = `<span>${item.name}</span>`;
-        cartItems.appendChild(cartItem);
+        itemCounts[item.id] = (itemCounts[item.id] || 0) + 1;
+    });
+    
+    // Afficher chaque plat unique avec sa quantité
+    Object.keys(itemCounts).forEach(id => {
+        const item = cart.find(item => item.id === parseInt(id));
+        if (item) {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <span>${item.name} x${itemCounts[id]}</span>
+                <div class="cart-item-actions">
+                    <button class="cart-plus" data-id="${id}">+</button>
+                    <button class="cart-minus" data-id="${id}">-</button>
+                </div>
+            `;
+            cartItems.appendChild(cartItem);
+        }
+    });
+    
+    // Ajouter les écouteurs d'événements pour les boutons du panier
+    document.querySelectorAll('.cart-plus').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            adjustQuantity(parseInt(e.target.dataset.id), 1);
+        });
+    });
+    
+    document.querySelectorAll('.cart-minus').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            adjustQuantity(parseInt(e.target.dataset.id), -1);
+        });
     });
 }
 
@@ -158,8 +220,13 @@ function validateRound() {
         currentRound++;
         remainingItems = 20;
         cart = [];
+        quantities = {};
         updateCartSummary();
         updateCartItems();
+        // Réinitialiser tous les affichages de quantité
+        document.querySelectorAll('.quantity').forEach(el => {
+            el.textContent = '0';
+        });
         alert(`Tour ${currentRound-1} validé ! Prêt pour le tour ${currentRound}`);
     } else {
         alert('Commande finale validée ! Merci pour votre commande.');
