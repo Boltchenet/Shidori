@@ -1,4 +1,4 @@
-// Données des plats (sans prix)
+// Données des plats
 const menuData = {
     entrees: [
         { id: 1, name: "Edamame", desc: "Fèves de soja fraîches légèrement salées", image: "https://medias.cotesushi.com/products/216/large_76211.webp" },
@@ -8,48 +8,48 @@ const menuData = {
         { id: 5, name: "Sashimi de Hamachi", desc: "5 pièces de sashimi de jaune (hamachi)", image: "https://takeaway.chahouse-ede.nl/wp-content/uploads/2020/11/20521-003.jpg" }
     ],
     sashimis: [
-        { id: 6, name: "Sashimi de Saumon", desc: "8 pièces de saumon frais", image: "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/wasabi/21_5ea7aa9d15664.jpg" },
-        { id: 7, name: "Sashimi Mixte Premium", desc: "12 pièces (thon, saumon, hamachi, madai)", image: "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/13/83/5a/sashimi.jpg" },
+        { id: 6, name: "Sashimi de Saumon", desc: "8 pièces de saumon frais", image: "https://capdhagsushi.com/wp-content/uploads/2020/01/Sashimi_Saumon_Cap_d_hag_haguenau.jpg" },
+        { id: 7, name: "Sashimi Mixte Premium", desc: "12 pièces (thon, saumon, hamachi, madai)", image: "https://sushismaki.pl/wp-content/uploads/2018/10/Sashimi-Mix-24-szt.jpg" },
         { id: 8, name: "Sashimi de Thon Rouge", desc: "6 pièces de thon rouge d'Oma", image: "https://medias.cotesushi.com/products/178/large_d86d1.webp" },
-        { id: 9, name: "Sashimi de Otoro", desc: "5 pièces de ventrèche de thon premium", image: "https://media.istockphoto.com/id/179591767/fr/photo/cuisine-japonaise-temakizushi.jpg?s=612x612&w=0&k=20&c=_ssasqxW22Hu9o5V5nFI5Q7y4waH6s5uIEIaCLzPRgA=" }
+        { id: 9, name: "Sashimi de Otoro", desc: "5 pièces de ventrèche de thon premium", image: "https://img.freepik.com/photos-premium/sashimi-thon-japonaise_127090-66.jpg" }
     ],
     sushis: [
-        { id: 10, name: "Nigiri Saumon", desc: "2 pièces de sushi au saumon", image: "https://restaurant-lesamourai.com/www/image/nigiris_shake_min.jpg" },
-        { id: 11, name: "Maki California", desc: "6 pièces de maki au crabe et avocat", image: "https://media.istockphoto.com/id/157609060/fr/photo/sushi-am%C3%A9ricain.jpg?s=612x612&w=0&k=20&c=gop_YoPIG56A8MF40vylx91sAEcmLuLBWgZln7FHvOQ=" },
-        { id: 12, name: "Uramaki Spicy Tuna", desc: "8 pièces de sushi inversé au thon épicé", image: "https://media-cdn.tripadvisor.com/media/photo-s/10/a4/eb/f3/uramaki-spicy-tuna.jpg" },
-        { id: 13, name: "Assortiment Chef", desc: "10 pièces (nigiri et maki sélectionnés)", image: "https://static.vecteezy.com/ti/photos-gratuite/t2/36212479-ai-genere-fraicheur-et-des-cultures-sur-une-assiette-de-maki-sushi-genere-par-ai-photo.jpg" },
-        { id: 14, name: "Temaki Uni", desc: "Cône main à l'oursin de Hokkaido", image: "https://media.istockphoto.com/id/179591767/fr/photo/cuisine-japonaise-temakizushi.jpg?s=612x612&w=0&k=20&c=_ssasqxW22Hu9o5V5nFI5Q7y4waH6s5uIEIaCLzPRgA=" }
+        { id: 10, name: "Nigiri Saumon", desc: "2 pièces de sushi au saumon", image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" },
+        { id: 11, name: "Maki California", desc: "6 pièces de maki au crabe et avocat", image: "https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" },
+        { id: 12, name: "Uramaki Spicy Tuna", desc: "8 pièces de sushi inversé au thon épicé", image: "https://www.justonecookbook.com/wp-content/uploads/2021/07/Spicy-Tuna-Roll-6882-I.jpg" },
+        { id: 13, name: "Assortiment Chef", desc: "10 pièces (nigiri et maki sélectionnés)", image: "https://www.sushisan.com/wp-content/uploads/2020/05/chefs-special-sushi-platter.jpg" },
+        { id: 14, name: "Temaki Uni", desc: "Cône main à l'oursin de Hokkaido", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Uni-Temaki-8284-I.jpg" }
     ],
     'plats-chauds': [
-        { id: 15, name: "Ramen Tonkotsu", desc: "Nouilles dans un bouillon de porc crémeux 48h", image: "https://blog.sakura.co/wp-content/uploads/2021/10/Hakata-thumbnail.jpg" },
-        { id: 16, name: "Wagyu A5 Miyazaki", desc: "Bœuf wagyu de grade A5, 150g", image: "https://img.freepik.com/photos-premium/viande-miyazaki-wagyu-a5_863013-174846.jpg" },
-        { id: 17, name: "Teriyaki Saumon", desc: "Saumon grillé avec sauce teriyaki maison", image: "https://media.istockphoto.com/id/647871516/fr/photo/saumon-teriyaki-sur-fond-noir.jpg?s=612x612&w=0&k=20&c=eF4-V4HkbOHANGGoitrVCw52_QKMhAZYyDkbYCv_XQE=" },
-        { id: 18, name: "Unagi Don", desc: "Bol de riz avec anguille grillée sauce kabayaki", image: "https://static.vecteezy.com/ti/photos-gratuite/t2/29557317-grille-anguille-avec-riz-photo.jpg" },
-        { id: 19, name: "Katsu Curry", desc: "Porc pané avec curry japonais et riz", image: "https://img.freepik.com/premium-photo/deluxe-chicken-katsu-curry-dish-japanese-cuisine-katsu-curry-food-image-photography_1020697-662801.jpg" }
+        { id: 15, name: "Ramen Tonkotsu", desc: "Nouilles dans un bouillon de porc crémeux 48h", image: "https://images.unsplash.com/photo-1617093727343-374698b1b188?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" },
+        { id: 16, name: "Wagyu A5 Miyazaki", desc: "Bœuf wagyu de grade A5, 150g", image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" },
+        { id: 17, name: "Teriyaki Saumon", desc: "Saumon grillé avec sauce teriyaki maison", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" },
+        { id: 18, name: "Unagi Don", desc: "Bol de riz avec anguille grillée sauce kabayaki", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Unagi-Don-8293-I.jpg" },
+        { id: 19, name: "Katsu Curry", desc: "Porc pané avec curry japonais et riz", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Japanese-Curry-8289-I.jpg" }
     ],
     alcool: [
-        { id: 20, name: "Saké Daiginjo", desc: "Saké premium Dassai 23, 180ml", image: "https://cove27.co.nz/cdn/shop/files/Dassai-23-Junmai-Daiginjo-Sake-720ml-nip_1024x1024@2x.webp?v=1732241256" },
-        { id: 21, name: "Saké Nigori", desc: "Saké non filtré Shirakabegura, 180ml", image: "https://cdn.shopify.com/s/files/1/0212/1922/files/021520_sg_nigori_web_1024x1024.jpg?v=1580771563" },
-        { id: 22, name: "Bière Asahi", desc: "Bière japonaise premium, 33cl", image: "https://www.kawaiicafe.fr/wp-content/uploads/2024/04/Biere-japonaise-asashi.jpg" },
-        { id: 23, name: "Umeshu Premium", desc: "Liqueur de prune vieillie Choya, 50ml", image: "https://media.assettype.com/foodtechbiz%2F2022-02%2F2e85a5f6-9257-4fa7-af44-a9e326f223d6%2FThree_flavours_of_Umeshu___Japan_s_traditional_plum_wine.png?w=1024&auto=format%2Ccompress&fit=max" },
-        { id: 24, name: "Whisky Yamazaki 18 ans", desc: "Single malt japonais, 50ml", image: "https://house.suntory.com/sites/default/files/styles/original/public/2023-05/Yamazaki_18YO_LTO_0.jpg.webp" }
+        { id: 20, name: "Saké Daiginjo", desc: "Saké premium Dassai 23, 180ml", image: "https://www.tippsysake.com/wp-content/uploads/2020/06/Dassai-23-720ml-1.jpg" },
+        { id: 21, name: "Saké Nigori", desc: "Saké non filtré Shirakabegura, 180ml", image: "https://www.sake-talk.com/wp-content/uploads/2021/05/shirakabegura-mio-sparkling-nigori-sake.jpg" },
+        { id: 22, name: "Bière Premium Yebisu", desc: "Bière japonaise artisanale, 33cl", image: "https://www.japancentre.com/images/products/contents/1175/yebisu-beer-japanese-beer.jpg" },
+        { id: 23, name: "Umeshu Premium", desc: "Liqueur de prune vieillie Choya, 50ml", image: "https://www.choya.com/wp-content/uploads/2020/06/umeshu-premium-1.jpg" },
+        { id: 24, name: "Whisky Yamazaki 18 ans", desc: "Single malt japonais, 50ml", image: "https://www.thewhiskyexchange.com/content/images/bottles/sgz/YAMAZAKI-18-YEAR-OLD.jpg" }
     ],
     brochettes: [
-        { id: 25, name: "Brochettes de Wagyu", desc: "2 brochettes de bœuf wagyu A5", image: "https://ebanian-traiteur.com/wp-content/uploads/2024/09/2-29.jpg" },
-        { id: 26, name: "Tsukune", desc: "Brochettes de boulettes de poulet", image: "https://ramekin.fr/wp-content/uploads/2024/06/tsukune-1-500x375.jpg" },
-        { id: 27, name: "Brochettes d'anguille", desc: "Unagi grillé sauce kabayaki", image: "https://media.istockphoto.com/id/1286618077/fr/photo/chef-dans-un-restaurant-danguille-cuisine-languille-kabayaki.jpg?s=612x612&w=0&k=20&c=hMVCInp0MizuEBBlib6VJZEtOXhrFscptH1uC8Oeth4=" }
+        { id: 25, name: "Brochettes de Wagyu", desc: "2 brochettes de bœuf wagyu A5", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Wagyu-Beef-Kushiyaki-8287-I.jpg" },
+        { id: 26, name: "Tsukune", desc: "Brochettes de boulettes de poulet", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Tsukune-8286-I.jpg" },
+        { id: 27, name: "Brochettes d'anguille", desc: "Unagi grillé sauce kabayaki", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Unagi-Kushiyaki-8285-I.jpg" }
     ],
     boissons: [
-        { id: 28, name: "Thé vert Matcha", desc: "Thé vert japonais en poudre", image: "https://www.bresilia.fr/2363-large_default/matcha.jpg" },
-        { id: 29, name: "Ramune Original", desc: "Boisson gazeuse japonaise à la lime", image: "https://www.yatai-france.fr/wp-content/uploads/2022/12/ramune.png" },
-        { id: 30, name: "Calpico", desc: "Boisson lactée japonaise rafraîchissante", image: "https://m.media-amazon.com/images/I/712be7Bvb1L.jpg" },
-        { id: 31, name: "Yuzu Soda", desc: "Soda au yuzu frais", image: "https://cdn.faire.com/fastly/4ef156d3ab5f326353eaaee17f311cbb52bd1d1c40528c23d80621ed734801a3.png" }
+        { id: 28, name: "Thé vert Matcha", desc: "Thé vert japonais en poudre", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Matcha-Green-Tea-8291-I.jpg" },
+        { id: 29, name: "Ramune Original", desc: "Boisson gazeuse japonaise à la lime", image: "https://www.japancentre.com/images/products/contents/1175/ramune-japanese-soda.jpg" },
+        { id: 30, name: "Calpico", desc: "Boisson lactée japonaise rafraîchissante", image: "https://www.japancentre.com/images/products/contents/1175/calpis-water-japanese-drink.jpg" },
+        { id: 31, name: "Yuzu Soda", desc: "Soda au yuzu frais", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Yuzu-Soda-8290-I.jpg" }
     ],
     desserts: [
-        { id: 32, name: "Mochi Glacé", desc: "3 pièces (matcha, fraise, mangue)", image: "https://img.cuisineaz.com/1024x768/2023/11/13/i196490-mochi-glace.jpg" },
-        { id: 33, name: "Dorayaki", desc: "Pancakes fourrés à la pâte de haricots rouges", image: "https://www.maisondumochi.fr/wp-content/uploads/2018/08/dorayaki-japon-533x800.jpg" },
-        { id: 34, name: "Matcha Tiramisu", desc: "Tiramisu au thé matcha", image: "https://www.iletaitunfruit.fr/wp-content/uploads/2024/05/Quel-est-le-secret-du-tiramisu-revisite-au-matcha-et-chocolat-blanc-pour-une-explosion-de-saveurs-1024x578.png" },
-        { id: 35, name: "Parfait Matcha", desc: "Dessert glacé multi-couches", image: "https://www.bentoandco.com/cdn/shop/articles/custom_resized_d8a2eced-50a5-40e0-99cd-5ef161942373.png?v=1628741285&width=1100" }
+        { id: 32, name: "Mochi Glacé", desc: "3 pièces (matcha, fraise, mangue)", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Mochi-Ice-Cream-8288-I.jpg" },
+        { id: 33, name: "Dorayaki", desc: "Pancakes fourrés à la pâte de haricots rouges", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Dorayaki-8283-I.jpg" },
+        { id: 34, name: "Matcha Tiramisu", desc: "Tiramisu au thé matcha", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Matcha-Tiramisu-8282-I.jpg" },
+        { id: 35, name: "Parfait Matcha", desc: "Dessert glacé multi-couches", image: "https://www.justonecookbook.com/wp-content/uploads/2021/12/Matcha-Parfait-8281-I.jpg" }
     ]
 };
 
@@ -95,7 +95,6 @@ function loadCategory(category) {
 
 // Gestion des événements
 function setupEventListeners() {
-    // Catégories
     document.querySelectorAll('.category-list li').forEach(item => {
         item.addEventListener('click', function() {
             document.querySelector('.category-list li.active').classList.remove('active');
@@ -105,10 +104,8 @@ function setupEventListeners() {
         });
     });
     
-    // Gestion des quantités
     document.addEventListener('click', function(e) {
         const dishId = parseInt(e.target.dataset.id);
-        
         if (e.target.classList.contains('plus')) {
             adjustQuantity(dishId, 1);
         } else if (e.target.classList.contains('minus')) {
@@ -116,11 +113,10 @@ function setupEventListeners() {
         }
     });
     
-    // Validation du tour
     document.getElementById('validate-btn').addEventListener('click', validateRound);
 }
 
-// Fonction pour ajuster les quantités
+// Ajuster les quantités
 function adjustQuantity(dishId, change) {
     if (!quantities[dishId]) quantities[dishId] = 0;
     
@@ -130,14 +126,12 @@ function adjustQuantity(dishId, change) {
         quantities[dishId] = newQuantity;
         updateQuantityDisplay(dishId);
         
-        // Trouver le plat correspondant
         let dish;
         for (const category in menuData) {
             dish = menuData[category].find(item => item.id === dishId);
             if (dish) break;
         }
         
-        // Mettre à jour le panier
         if (dish) {
             if (change > 0) {
                 cart.push(dish);
@@ -155,7 +149,7 @@ function adjustQuantity(dishId, change) {
     }
 }
 
-// Mettre à jour l'affichage de la quantité
+// Mettre à jour l'affichage des quantités
 function updateQuantityDisplay(dishId) {
     const quantityElement = document.querySelector(`.quantity[data-id="${dishId}"]`);
     if (quantityElement) {
@@ -170,18 +164,16 @@ function updateCartSummary() {
     document.getElementById('current-round').textContent = currentRound;
 }
 
-// Mettre à jour la liste des articles du panier
+// Mettre à jour les articles du panier
 function updateCartItems() {
     const cartItems = document.getElementById('cart-items');
     cartItems.innerHTML = '';
     
-    // Compter les occurrences de chaque plat
     const itemCounts = {};
     cart.forEach(item => {
         itemCounts[item.id] = (itemCounts[item.id] || 0) + 1;
     });
     
-    // Afficher chaque plat unique avec sa quantité
     Object.keys(itemCounts).forEach(id => {
         const item = cart.find(item => item.id === parseInt(id));
         if (item) {
@@ -198,7 +190,6 @@ function updateCartItems() {
         }
     });
     
-    // Ajouter les écouteurs d'événements pour les boutons du panier
     document.querySelectorAll('.cart-plus').forEach(btn => {
         btn.addEventListener('click', (e) => {
             adjustQuantity(parseInt(e.target.dataset.id), 1);
@@ -216,19 +207,35 @@ function updateCartItems() {
 function validateRound() {
     if (cart.length === 0) return;
     
+    const normalOverlay = document.getElementById('validation-overlay');
+    const maxRoundOverlay = document.getElementById('max-round-overlay');
+    const message = document.getElementById('validation-message');
+
     if (currentRound < maxRounds) {
         currentRound++;
         remainingItems = 20;
         cart = [];
         quantities = {};
-        updateCartSummary();
-        updateCartItems();
-        // Réinitialiser tous les affichages de quantité
-        document.querySelectorAll('.quantity').forEach(el => {
-            el.textContent = '0';
-        });
-        alert(`Tour ${currentRound-1} validé ! Prêt pour le tour ${currentRound}`);
+        
+        message.textContent = `Tour ${currentRound-1} validé ! Prêt pour le tour ${currentRound}`;
+        normalOverlay.classList.add('active');
+        
+        setTimeout(() => {
+            normalOverlay.classList.remove('active');
+            updateCartSummary();
+            updateCartItems();
+            document.querySelectorAll('.quantity').forEach(el => {
+                el.textContent = '0';
+            });
+        }, 3000);
     } else {
-        alert('Commande finale validée ! Merci pour votre commande.');
+        maxRoundOverlay.style.display = 'flex';
+        
+        setTimeout(() => {
+            maxRoundOverlay.style.display = 'none';
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+        }, 3000);
     }
 }
