@@ -8,8 +8,8 @@ const menuData = {
         { id: 5, name: "Sashimi de Hamachi", desc: "5 pièces de sashimi de jaune (hamachi)", image: "https://takeaway.chahouse-ede.nl/wp-content/uploads/2020/11/20521-003.jpg" }
     ],
     sashimis: [
-        { id: 6, name: "Sashimi de Saumon", desc: "8 pièces de saumon frais", image: "https://lesakebon.com/wp-content/uploads/2025/01/big_66-1.jpg" },
-        { id: 7, name: "Sashimi Mixte Premium", desc: "12 pièces (thon, saumon, hamachi, madai)", image: "https://static.vecteezy.com/ti/photos-gratuite/t2/36212479-ai-genere-fraicheur-et-des-cultures-sur-une-assiette-de-maki-sushi-genere-par-ai-photo.jpg" },
+        { id: 6, name: "Sashimi de Saumon", desc: "8 pièces de saumon frais", image: "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/wasabi/21_5ea7aa9d15664.jpg" },
+        { id: 7, name: "Sashimi Mixte Premium", desc: "12 pièces (thon, saumon, hamachi, madai)", image: "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/13/83/5a/sashimi.jpg" },
         { id: 8, name: "Sashimi de Thon Rouge", desc: "6 pièces de thon rouge d'Oma", image: "https://medias.cotesushi.com/products/178/large_d86d1.webp" },
         { id: 9, name: "Sashimi de Otoro", desc: "5 pièces de ventrèche de thon premium", image: "https://media.istockphoto.com/id/179591767/fr/photo/cuisine-japonaise-temakizushi.jpg?s=612x612&w=0&k=20&c=_ssasqxW22Hu9o5V5nFI5Q7y4waH6s5uIEIaCLzPRgA=" }
     ],
@@ -28,10 +28,10 @@ const menuData = {
         { id: 19, name: "Katsu Curry", desc: "Porc pané avec curry japonais et riz", image: "https://img.freepik.com/premium-photo/deluxe-chicken-katsu-curry-dish-japanese-cuisine-katsu-curry-food-image-photography_1020697-662801.jpg" }
     ],
     alcool: [
-        { id: 20, name: "Saké Daiginjo", desc: "Saké premium Dassai 23, 180ml", image: "https://cdn.shopify.com/s/files/1/0610/9013/6246/files/dassai-2wari3bu_480x480.jpg" },
-        { id: 21, name: "Saké Nigori", desc: "Saké non filtré Shirakabegura, 180ml", image: "https://www.asiamarche.fr/cdn/shop/files/4951_1200x1200.jpg" },
-        { id: 22, name: "Bière Premium Yebisu", desc: "Bière japonaise artisanale, 33cl", image: "https://sakeichiban.com.au/cdn/shop/files/37075_1.png" },
-        { id: 23, name: "Umeshu Premium", desc: "Liqueur de prune vieillie Choya, 50ml", image: "https://www.kioko.fr/cdn/shop/files/TEM016.png" },
+        { id: 20, name: "Saké Daiginjo", desc: "Saké premium Dassai 23, 180ml", image: "https://cove27.co.nz/cdn/shop/files/Dassai-23-Junmai-Daiginjo-Sake-720ml-nip_1024x1024@2x.webp?v=1732241256" },
+        { id: 21, name: "Saké Nigori", desc: "Saké non filtré Shirakabegura, 180ml", image: "https://cdn.shopify.com/s/files/1/0212/1922/files/021520_sg_nigori_web_1024x1024.jpg?v=1580771563" },
+        { id: 22, name: "Bière Asahi", desc: "Bière japonaise premium, 33cl", image: "https://www.kawaiicafe.fr/wp-content/uploads/2024/04/Biere-japonaise-asashi.jpg" },
+        { id: 23, name: "Umeshu Premium", desc: "Liqueur de prune vieillie Choya, 50ml", image: "https://media.assettype.com/foodtechbiz%2F2022-02%2F2e85a5f6-9257-4fa7-af44-a9e326f223d6%2FThree_flavours_of_Umeshu___Japan_s_traditional_plum_wine.png?w=1024&auto=format%2Ccompress&fit=max" },
         { id: 24, name: "Whisky Yamazaki 18 ans", desc: "Single malt japonais, 50ml", image: "https://house.suntory.com/sites/default/files/styles/original/public/2023-05/Yamazaki_18YO_LTO_0.jpg.webp" }
     ],
     brochettes: [
@@ -40,7 +40,7 @@ const menuData = {
         { id: 27, name: "Brochettes d'anguille", desc: "Unagi grillé sauce kabayaki", image: "https://media.istockphoto.com/id/1286618077/fr/photo/chef-dans-un-restaurant-danguille-cuisine-languille-kabayaki.jpg?s=612x612&w=0&k=20&c=hMVCInp0MizuEBBlib6VJZEtOXhrFscptH1uC8Oeth4=" }
     ],
     boissons: [
-        { id: 28, name: "Thé vert Matcha", desc: "Thé vert japonais en poudre", image: "https://img.freepik.com/free-photo/hot-green-tea-glass-with-cream-topped-with-green-tea-decorated-with-green-tea-powder_1150-23323.jpg" },
+        { id: 28, name: "Thé vert Matcha", desc: "Thé vert japonais en poudre", image: "https://www.bresilia.fr/2363-large_default/matcha.jpg" },
         { id: 29, name: "Ramune Original", desc: "Boisson gazeuse japonaise à la lime", image: "https://www.yatai-france.fr/wp-content/uploads/2022/12/ramune.png" },
         { id: 30, name: "Calpico", desc: "Boisson lactée japonaise rafraîchissante", image: "https://m.media-amazon.com/images/I/712be7Bvb1L.jpg" },
         { id: 31, name: "Yuzu Soda", desc: "Soda au yuzu frais", image: "https://cdn.faire.com/fastly/4ef156d3ab5f326353eaaee17f311cbb52bd1d1c40528c23d80621ed734801a3.png" }
@@ -48,11 +48,10 @@ const menuData = {
     desserts: [
         { id: 32, name: "Mochi Glacé", desc: "3 pièces (matcha, fraise, mangue)", image: "https://img.cuisineaz.com/1024x768/2023/11/13/i196490-mochi-glace.jpg" },
         { id: 33, name: "Dorayaki", desc: "Pancakes fourrés à la pâte de haricots rouges", image: "https://www.maisondumochi.fr/wp-content/uploads/2018/08/dorayaki-japon-533x800.jpg" },
-        { id: 34, name: "Matcha Tiramisu", desc: "Tiramisu au thé matcha", image: "https://www.crazyvegankitchen.com/wp-content/uploads/2017/11/green-tea-tiramisu-683x1024.jpg" },
-        { id: 35, name: "Parfait Matcha", desc: "Dessert glacé multi-couches", image: "https://media-cdn.tripadvisor.com/media/photo-s/19/a2/8f/7c/caption.jpg" }
+        { id: 34, name: "Matcha Tiramisu", desc: "Tiramisu au thé matcha", image: "https://www.iletaitunfruit.fr/wp-content/uploads/2024/05/Quel-est-le-secret-du-tiramisu-revisite-au-matcha-et-chocolat-blanc-pour-une-explosion-de-saveurs-1024x578.png" },
+        { id: 35, name: "Parfait Matcha", desc: "Dessert glacé multi-couches", image: "https://www.bentoandco.com/cdn/shop/articles/custom_resized_d8a2eced-50a5-40e0-99cd-5ef161942373.png?v=1628741285&width=1100" }
     ]
 };
-
 
 // Variables d'état
 let currentCategory = 'entrees';
