@@ -150,7 +150,7 @@ body {
         font-size: 1.2rem;
     }
 }
-/* Styles spécifiques au menu */
+/* Styles spÃ©cifiques au menu */
 .menu-container {
     padding: 2rem;
     max-width: 1400px;
@@ -307,3 +307,41 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Styles pour le footer */
+.menu-footer {
+    background: rgba(20, 20, 20, 0.9);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+}
+
+.catalogue-link {
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.catalogue-link:hover {
+    background: rgba(232, 232, 232, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+  
