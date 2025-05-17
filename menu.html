@@ -1,16 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!-- Préchargement pour éviter le flash de police -->
+<link rel="preload" href="https://fonts.gstatic.com/s/GreatVibes/v16/RWmMoKWR9v4ksMfaWd_JN9XFiaQo.ttf" as="font" type="font/ttf" crossorigin>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Shidori</title>
+
+    <!-- Préchargement des polices -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/GreatVibes/v16/RWmMoKWR9v4ksMfaWd_JN9XFiaQo.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/notoserifjp/v21/xn7mYHs72GKoTvER4Gn3b5eMXNvMckQlPa61uNKcCqI.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+JP:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
     <link rel="stylesheet" href="css/menu.css">
+
+    <style>
+        /* Styles spécifiques à la page menu */
+        .menu-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .restaurant-name {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .restaurant-name::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .category-title {
+            font-family: 'Noto Serif JP', serif;
+            color: #e8c874;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background: #d4af37;
+        }
+
+        /* Animation des cartes de plats */
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dish-card {
+            animation: cardAppear 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .dish-card:nth-child(1) { animation-delay: 0.1s; }
+        .dish-card:nth-child(2) { animation-delay: 0.2s; }
+        .dish-card:nth-child(3) { animation-delay: 0.3s; }
+        .dish-card:nth-child(4) { animation-delay: 0.4s; }
+        .dish-card:nth-child(5) { animation-delay: 0.5s; }
+        .dish-card:nth-child(6) { animation-delay: 0.6s; }
+        .dish-card:nth-child(7) { animation-delay: 0.7s; }
+        .dish-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Effet de survol sur les catégories */
+        .category-list li {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Style du bouton de validation */
+        .validate-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .validate-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .validate-btn:hover::after {
+            left: 100%;
+        }
+    </style>
 </head>
 <body>
+    <!-- Fond marbré avec veines dorées -->
     <div class="marble-overlay"></div>
+    <div class="gold-veins"></div>
     
     <main class="menu-container">
         <a href="index.html" class="restaurant-name-link">
@@ -20,16 +122,16 @@
         <div class="menu-columns">
             <!-- Colonne Catégories -->
             <div class="categories-column">
-                <h2>Catégories</h2>
+                <h2><span class="jp-text">カテゴリー</span> Catégories</h2>
                 <ul class="category-list">
-                    <li class="active" data-category="entrees">Entrées</li>
-                    <li data-category="sashimis">Sashimis</li>
-                    <li data-category="sushis">Sushis</li>
-                    <li data-category="plats-chauds">Plats chauds</li>
-                    <li data-category="brochettes">Brochettes</li>
-                    <li data-category="boissons">Boissons</li>
-                    <li data-category="alcool">Alcool</li>
-                    <li data-category="desserts">Desserts</li>
+                    <li class="active" data-category="entrees"><span class="jp-text">前菜</span> Entrées</li>
+                    <li data-category="sashimis"><span class="jp-text">刺身</span> Sashimis</li>
+                    <li data-category="sushis"><span class="jp-text">寿司</span> Sushis</li>
+                    <li data-category="plats-chauds"><span class="jp-text">温かい料理</span> Plats chauds</li>
+                    <li data-category="brochettes"><span class="jp-text">串焼き</span> Brochettes</li>
+                    <li data-category="boissons"><span class="jp-text">飲み物</span> Boissons</li>
+                    <li data-category="alcool"><span class="jp-text">日本酒</span> Alcool</li>
+                    <li data-category="desserts"><span class="jp-text">デザート</span> Desserts</li>
                 </ul>
             </div>
             
@@ -43,32 +145,54 @@
             
             <!-- Colonne Panier -->
             <div class="cart-column">
-                <h2>Votre Commande</h2>
+                <h2><span class="jp-text">注文</span> Votre Commande</h2>
                 <div class="cart-summary">
                     <p>Plats commandés: <span id="total-items">0</span></p>
                     <p>Plats restants: <span id="remaining-items">20</span>/20</p>
-                    <p>Tour: <span id="current-round">1</span>/5 <span id="round-status"></span></p>
+                    <p>Tour: <span id="current-round">1</span>/5</p>
                 </div>
                 <div class="cart-items" id="cart-items">
                     <!-- Les articles du panier apparaîtront ici -->
                 </div>
-                <button class="validate-btn" id="validate-btn">Valider le tour</button>
+                <button class="validate-btn" id="validate-btn">
+                    <span class="jp-text">確認</span> Valider le tour
+                </button>
             </div>
         </div>
     </main>
 
-    <!-- Overlay d'animation de validation -->
-    <div class="validation-overlay" id="validation-overlay">
-        <div class="validation-check"></div>
-    </div>
-
     <footer class="menu-footer">
         <div class="footer-content">
-            <p>© 2025 Shidori | Restaurant Japonais</p>
-            <a href="Catalogue.html" class="catalogue-link">Voir le catalogue complet</a>
+            <p>© 2025 <span class="jp-text">志度里</span> Shidori</p>
+            <a href="Catalogue.html" class="catalogue-link">
+                <span class="jp-text">完全なカタログ</span> Voir le catalogue complet
+            </a>
         </div>
     </footer>
 
     <script src="js/menu.js"></script>
+
+    <script>
+        // Animation supplémentaire pour le chargement des catégories
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryItems = document.querySelectorAll('.category-list li');
+            
+            categoryItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.animation = `fadeInRight 0.5s ease forwards ${index * 0.1 + 0.3}s`;
+            });
+
+            // Ajout de la feuille de style pour l'animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInRight {
+                    from { opacity: 0; transform: translateX(-20px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
