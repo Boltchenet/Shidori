@@ -6,70 +6,346 @@
     <title>Catalogue - Shidori</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/Catalogue.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+JP:wght@300;400;500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: rgba(15, 15, 15, 0.85);
+            --card-hover: rgba(25, 25, 25, 0.92);
+            --gold: #d4af37;
+            --light-gold: #e8c874;
+            --text-light: #f0f0f0;
+            --text-muted: #aaaaaa;
+            --border-dark: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', 'Noto Serif JP', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1518562180175-34a163b1c9c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(10,10,10,0.85) 0%, rgba(5,5,5,0.95) 100%);
+            z-index: -1;
+        }
+
+        .catalogue-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            position: relative;
+        }
+
+        .catalogue-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .catalogue-header::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .catalogue-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--gold);
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .menu-section {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.2rem;
+            color: var(--light-gold);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-dark);
+            font-weight: 400;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .catalogue-dish {
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .catalogue-dish:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            background: var(--card-hover);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .catalogue-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.1) saturate(1.1);
+            transition: filter 0.4s ease;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .catalogue-dish:hover .catalogue-image {
+            filter: brightness(0.9) contrast(1.15) saturate(1.2);
+        }
+
+        .catalogue-dish-info {
+            padding: 1.8rem;
+        }
+
+        .catalogue-dish-name {
+            font-size: 1.3rem;
+            margin: 0 0 1rem 0;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .catalogue-dish-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .menu-footer {
+            background: rgba(5, 5, 5, 0.9);
+            padding: 3rem;
+            text-align: center;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .menu-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-footer p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .catalogue-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 400;
+            margin-top: 1.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 3px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .catalogue-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--light-gold);
+            transition: width 0.3s ease;
+        }
+
+        .catalogue-link:hover::after {
+            width: 100%;
+        }
+
+        .catalogue-link:hover {
+            color: var(--light-gold);
+        }
+
+        @media (max-width: 768px) {
+            .catalogue-container {
+                padding: 2rem 1rem;
+            }
+            
+            .catalogue-title {
+                font-size: 3.5rem;
+            }
+            
+            .dishes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .menu-section {
+                margin-bottom: 4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="marble-overlay"></div>
+    <div class="luxury-japanese-overlay">
+    <div class="gold-pattern"></div>
+</div>
     
     <main class="catalogue-container">
         <div class="catalogue-header">
             <a href="menu.html" class="restaurant-name-link">
                 <h1 class="catalogue-title">Shidori</h1>
             </a>
-            <p class="slogan">Notre catalogue complet</p>
+            <p class="slogan">月影の料理 - La cuisine sous la lune</p>
         </div>
         
         <section class="menu-section">
-            <h2 class="section-title">Entrées</h2>
+            <h2 class="section-title">前菜 - Entrées</h2>
             <div class="dishes-grid" id="entrees-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Sashimis</h2>
+            <h2 class="section-title">刺身 - Sashimis</h2>
             <div class="dishes-grid" id="sashimis-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Sushis</h2>
+            <h2 class="section-title">寿司 - Sushis</h2>
             <div class="dishes-grid" id="sushis-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Plats chauds</h2>
+            <h2 class="section-title">温かい料理 - Plats chauds</h2>
             <div class="dishes-grid" id="plats-chauds-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Brochettes</h2>
+            <h2 class="section-title">串焼き - Brochettes</h2>
             <div class="dishes-grid" id="brochettes-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Alcool</h2>
+            <h2 class="section-title">日本酒 - Boissons alcoolisées</h2>
             <div class="dishes-grid" id="alcool-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Boissons</h2>
+            <h2 class="section-title">飲み物 - Boissons</h2>
             <div class="dishes-grid" id="boissons-section"></div>
         </section>
         
         <section class="menu-section">
-            <h2 class="section-title">Desserts</h2>
+            <h2 class="section-title">デザート - Desserts</h2>
             <div class="dishes-grid" id="desserts-section"></div>
         </section>
     </main>
 
     <footer class="menu-footer">
         <div class="footer-content">
-            <p>© 2025 Shidori | Restaurant Japonais</p>
-            <a href="menu.html" class="catalogue-link">Retour au menu</a>
+            <p>© 2025 志度里 - Tous droits réservés</p>
+            <a href="menu.html" class="catalogue-link">ホームに戻る - Retour à l'accueil</a>
         </div>
     </footer>
 
-    <!-- Chargement des scripts -->
     <script src="js/menu.js"></script>
-    <script src="js/Catalogue.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof menuData === 'undefined') {
+                console.error('Erreur: menuData non chargé.');
+                return;
+            }
+
+            // Charger toutes les catégories
+            const categories = [
+                'entrees', 'sashimis', 'sushis', 'plats-chauds',
+                'brochettes', 'alcool', 'boissons', 'desserts'
+            ];
+
+            categories.forEach(category => {
+                const section = document.getElementById(`${category}-section`);
+                if (!section || !menuData[category]) return;
+
+                section.innerHTML = menuData[category].map(dish => `
+                    <div class="catalogue-dish">
+                        <img src="${dish.image}" alt="${dish.name}" class="catalogue-image" loading="lazy">
+                        <div class="catalogue-dish-info">
+                            <h3 class="catalogue-dish-name">${dish.name}</h3>
+                            <p class="catalogue-dish-desc">${dish.desc}</p>
+                        </div>
+                    </div>
+                `).join('');
+            });
+        });
+    </script>
 </body>
 </html>
