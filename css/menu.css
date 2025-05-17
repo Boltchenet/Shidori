@@ -1,29 +1,63 @@
-/* Reset et base */
-* {
+/* menu.css - Thème luxueux marbre noir & or */
+
+:root {
+    /* Palette de couleurs */
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --card-bg: rgba(20, 20, 20, 0.78);
+    --card-hover: rgba(30, 30, 30, 0.85);
+    --gold: #d4af37;
+    --light-gold: #e8c874;
+    --text-light: #f5f5f5;
+    --text-muted: #b0b0b0;
+    --border-dark: rgba(255, 255, 255, 0.08);
+}
+
+/* Base */
+body {
+    font-family: 'Roboto', 'Noto Serif JP', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    min-height: 100vh;
+    color: var(--text-light);
+    background-color: var(--dark-bg);
+    background-image: url('https://img.freepik.com/vecteurs-premium/fond-texture-marbre-noir_322958-1983.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    line-height: 1.6;
 }
 
-body {
-    font-family: 'Dancing Script', cursive;
-    background-color: #0a0a0a;
-    color: #e8e8e8;
-    height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
-
+/* Arrière-plan sophistiqué */
 .marble-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
-        url('../images/marble-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(5,5,5,0.92) 100%);
+    z-index: -2;
+}
+
+.gold-veins {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" opacity="0.06"><path d="M0,300 C150,500 450,100 600,300 L600,600 L0,600 Z" fill="%23D4AF37"/></svg>'),
+        repeating-linear-gradient(
+            35deg,
+            rgba(212,175,55,0.04),
+            rgba(212,175,55,0.07) 1px,
+            transparent 3px,
+            transparent 30px
+        );
+    background-size: 800px 800px, auto;
     z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
 }
 
 /* Conteneur principal */
@@ -46,23 +80,28 @@ body {
 .restaurant-name {
     font-family: 'Great Vibes', cursive;
     font-size: 6rem;
-    color: #e8e8e8;
+    color: var(--gold);
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     letter-spacing: 2px;
     transition: transform 0.3s ease;
 }
 
 .restaurant-name:hover {
     transform: scale(1.05);
+    text-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
 
 /* Slogan */
 .slogan {
+    font-family: 'Noto Serif JP', serif;
     font-size: 1.8rem;
     margin-bottom: 3rem;
     max-width: 600px;
     line-height: 1.6;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
 /* Bouton Call-to-Action */
@@ -70,8 +109,8 @@ body {
     display: inline-block;
     padding: 15px 40px;
     background: transparent;
-    color: #e8e8e8;
-    border: 2px solid #e8e8e8;
+    color: var(--gold);
+    border: 2px solid var(--gold);
     font-size: 1.2rem;
     text-decoration: none;
     border-radius: 50px;
@@ -79,27 +118,21 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    background: rgba(232, 232, 232, 0.1);
+    background: rgba(212, 175, 55, 0.1);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: var(--light-gold);
+    border-color: var(--light-gold);
 }
 
 .cta-button:active {
     transform: translateY(-1px);
-}
-
-/* Message du menu */
-.menu-message {
-    font-size: 1.5rem;
-    line-height: 2;
-    margin-top: 2rem;
-    max-width: 600px;
 }
 
 /* Animations */
@@ -121,36 +154,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .restaurant-name {
-        font-size: 4rem;
-    }
-    
-    .slogan {
-        font-size: 1.4rem;
-    }
-    
-    .cta-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .restaurant-name {
-        font-size: 3rem;
-    }
-    
-    .slogan {
-        font-size: 1.2rem;
-    }
-    
-    .menu-message {
-        font-size: 1.2rem;
-    }
-}
-
 /* Styles spécifiques au menu */
 .menu-container {
     padding: 2rem;
@@ -166,11 +169,12 @@ body {
 }
 
 .categories-column, .dishes-column, .cart-column {
-    background: rgba(20, 20, 20, 0.7);
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .category-list {
@@ -184,16 +188,19 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
+    color: var(--text-muted);
 }
 
 .category-list li:hover {
     background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
 }
 
 .category-list li.active {
-    background: rgba(232, 232, 232, 0.2);
-    border-left: 3px solid #e8e8e8;
+    background: rgba(212, 175, 55, 0.2);
+    border-left: 3px solid var(--gold);
+    color: var(--text-light);
 }
 
 .dishes-list {
@@ -204,14 +211,17 @@ body {
 }
 
 .dish-card {
-    background: rgba(30, 30, 30, 0.7);
+    background: var(--card-bg);
     padding: 1.2rem;
     border-radius: 6px;
     transition: transform 0.3s ease;
+    border: 1px solid var(--border-dark);
 }
 
 .dish-card:hover {
     transform: translateY(-5px);
+    background: var(--card-hover);
+    border-color: rgba(212, 175, 55, 0.25);
 }
 
 .dish-image {
@@ -222,6 +232,7 @@ body {
     margin-bottom: 1rem;
     border-radius: 4px;
     transition: transform 0.3s ease;
+    border: 1px solid var(--border-dark);
 }
 
 .dish-card:hover .dish-image {
@@ -229,18 +240,19 @@ body {
 }
 
 .dish-name {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-weight: 500;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
+    color: var(--light-gold);
 }
 
 .dish-desc {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-weight: 300;
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    color: #ccc;
+    color: var(--text-muted);
 }
 
 .quantity-selector {
@@ -255,12 +267,12 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: rgba(232, 232, 232, 0.1);
-    color: #e8e8e8;
-    border: 1px solid #e8e8e8;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    border: 1px solid var(--gold);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -268,19 +280,25 @@ body {
 }
 
 .quantity-btn:hover {
-    background: rgba(232, 232, 232, 0.2);
+    background: rgba(212, 175, 55, 0.2);
 }
 
 .quantity {
     min-width: 20px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
+    color: var(--text-light);
 }
 
 .cart-summary {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-dark);
+    color: var(--text-muted);
+}
+
+.cart-summary span {
+    color: var(--text-light);
 }
 
 .cart-items {
@@ -292,7 +310,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-dark);
+    color: var(--text-light);
 }
 
 .cart-item-actions {
@@ -304,9 +323,9 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: rgba(232, 232, 232, 0.1);
-    color: #e8e8e8;
-    border: 1px solid #e8e8e8;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    border: 1px solid var(--gold);
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.8rem;
@@ -316,24 +335,62 @@ body {
 }
 
 .cart-plus:hover, .cart-minus:hover {
-    background: rgba(232, 232, 232, 0.2);
+    background: rgba(212, 175, 55, 0.2);
 }
 
 .validate-btn {
     width: 100%;
     padding: 1rem;
-    background: rgba(232, 232, 232, 0.1);
-    color: #e8e8e8;
-    border: 1px solid #e8e8e8;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    border: 1px solid var(--gold);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 1rem;
 }
 
 .validate-btn:hover {
-    background: rgba(232, 232, 232, 0.2);
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--light-gold);
+    border-color: var(--light-gold);
+}
+
+/* Styles pour le footer */
+.menu-footer {
+    background: rgba(8, 8, 8, 0.92);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-dark);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.catalogue-link {
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.catalogue-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--light-gold);
+    border-color: var(--light-gold);
 }
 
 /* Responsive */
@@ -344,6 +401,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    .restaurant-name {
+        font-size: 4rem;
+    }
+    
+    .slogan {
+        font-size: 1.4rem;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
     .menu-columns {
         grid-template-columns: 1fr;
     }
@@ -351,43 +421,19 @@ body {
     .dishes-list {
         grid-template-columns: 1fr;
     }
-}
 
-/* Styles pour le footer */
-.menu-footer {
-    background: rgba(20, 20, 20, 0.9);
-    padding: 1.5rem;
-    text-align: center;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-}
-
-.catalogue-link {
-    color: #e8e8e8;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid #e8e8e8;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.catalogue-link:hover {
-    background: rgba(232, 232, 232, 0.1);
-}
-
-@media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .restaurant-name {
+        font-size: 3rem;
+    }
+    
+    .slogan {
+        font-size: 1.2rem;
     }
 }
