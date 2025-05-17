@@ -30,6 +30,7 @@
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
+            font-family: 'Great Vibes', cursive !important;
         }
 
         .restaurant-name::after {
@@ -44,7 +45,7 @@
         }
 
         .category-title {
-            font-family: 'Noto Serif JP', serif;
+            font-family: 'Noto Serif JP', serif !important;
             color: #e8c874;
             position: relative;
             padding-bottom: 10px;
@@ -84,6 +85,7 @@
         /* Effet de survol sur les catégories */
         .category-list li {
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Noto Serif JP', serif;
         }
 
         /* Style du bouton de validation */
@@ -91,6 +93,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s;
+            font-family: 'Roboto', sans-serif !important;
         }
 
         .validate-btn::after {
@@ -106,6 +109,19 @@
 
         .validate-btn:hover::after {
             left: 100%;
+        }
+
+        /* Uniformisation des polices */
+        .dish-name, .category-list li {
+            font-family: 'Noto Serif JP', serif !important;
+        }
+        
+        .dish-desc, .cart-summary, .validate-btn, .menu-footer p {
+            font-family: 'Roboto', sans-serif !important;
+        }
+        
+        .restaurant-name-link {
+            text-decoration: none;
         }
     </style>
 </head>
