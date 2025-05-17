@@ -1,4 +1,4 @@
-// Données des plats
+// Données des plats (sans prix)
 const menuData = {
     entrees: [
         { id: 1, name: "Edamame", desc: "Fèves de soja fraîches légèrement salées", image: "https://medias.cotesushi.com/products/216/large_76211.webp" },
@@ -95,6 +95,7 @@ function loadCategory(category) {
 
 // Gestion des événements
 function setupEventListeners() {
+    // Catégories
     document.querySelectorAll('.category-list li').forEach(item => {
         item.addEventListener('click', function() {
             document.querySelector('.category-list li.active').classList.remove('active');
@@ -104,8 +105,10 @@ function setupEventListeners() {
         });
     });
     
+    // Gestion des quantités
     document.addEventListener('click', function(e) {
         const dishId = parseInt(e.target.dataset.id);
+        
         if (e.target.classList.contains('plus')) {
             adjustQuantity(dishId, 1);
         } else if (e.target.classList.contains('minus')) {
@@ -113,13 +116,12 @@ function setupEventListeners() {
         }
     });
     
+    // Validation du tour
     document.getElementById('validate-btn').addEventListener('click', validateRound);
 }
 
-// Ajuster les quantités
+// Fonction pour ajuster les quantités
 function adjustQuantity(dishId, change) {
-    if (currentRound >= maxRounds && change > 0) return;
-    
     if (!quantities[dishId]) quantities[dishId] = 0;
     
     const newQuantity = quantities[dishId] + change;
@@ -128,12 +130,14 @@ function adjustQuantity(dishId, change) {
         quantities[dishId] = newQuantity;
         updateQuantityDisplay(dishId);
         
+        // Trouver le plat correspondant
         let dish;
         for (const category in menuData) {
             dish = menuData[category].find(item => item.id === dishId);
             if (dish) break;
         }
         
+        // Mettre à jour le panier
         if (dish) {
             if (change > 0) {
                 cart.push(dish);
@@ -151,7 +155,7 @@ function adjustQuantity(dishId, change) {
     }
 }
 
-// Mettre à jour l'affichage des quantités
+// Mettre à jour l'affichage de la quantité
 function updateQuantityDisplay(dishId) {
     const quantityElement = document.querySelector(`.quantity[data-id="${dishId}"]`);
     if (quantityElement) {
@@ -164,26 +168,20 @@ function updateCartSummary() {
     document.getElementById('total-items').textContent = cart.length;
     document.getElementById('remaining-items').textContent = remainingItems;
     document.getElementById('current-round').textContent = currentRound;
-    
-    // Mettre à jour le statut du tour
-    const roundStatus = document.getElementById('round-status');
-    if (currentRound === maxRounds) {
-        roundStatus.textContent = "(Dernier tour)";
-    } else {
-        roundStatus.textContent = "";
-    }
 }
 
-// Mettre à jour les articles du panier
+// Mettre à jour la liste des articles du panier
 function updateCartItems() {
     const cartItems = document.getElementById('cart-items');
     cartItems.innerHTML = '';
     
+    // Compter les occurrences de chaque plat
     const itemCounts = {};
     cart.forEach(item => {
         itemCounts[item.id] = (itemCounts[item.id] || 0) + 1;
     });
     
+    // Afficher chaque plat unique avec sa quantité
     Object.keys(itemCounts).forEach(id => {
         const item = cart.find(item => item.id === parseInt(id));
         if (item) {
@@ -200,6 +198,7 @@ function updateCartItems() {
         }
     });
     
+    // Ajouter les écouteurs d'événements pour les boutons du panier
     document.querySelectorAll('.cart-plus').forEach(btn => {
         btn.addEventListener('click', (e) => {
             adjustQuantity(parseInt(e.target.dataset.id), 1);
@@ -217,51 +216,19 @@ function updateCartItems() {
 function validateRound() {
     if (cart.length === 0) return;
     
-    const overlay = document.getElementById('validation-overlay');
-    const validateBtn = document.getElementById('validate-btn');
-    
     if (currentRound < maxRounds) {
         currentRound++;
         remainingItems = 20;
         cart = [];
         quantities = {};
-        
-        // Afficher l'animation
-        overlay.classList.add('active');
-        
-        setTimeout(() => {
-            overlay.classList.remove('active');
-            updateCartSummary();
-            updateCartItems();
-            
-            // Réinitialiser les quantités affichées
-            document.querySelectorAll('.quantity').forEach(el => {
-                el.textContent = '0';
-            });
-            
-            // Mettre à jour le bouton si dernier tour
-            if (currentRound === maxRounds) {
-                validateBtn.textContent = "Valider la commande finale";
-            }
-        }, 1000);
-        
-    } else if (currentRound === maxRounds) {
-        // Dernière validation
-        overlay.classList.add('active');
-        
-        setTimeout(() => {
-            overlay.classList.remove('active');
-            
-            // Désactiver complètement le système
-            validateBtn.disabled = true;
-            validateBtn.style.opacity = '0.5';
-            validateBtn.style.cursor = 'not-allowed';
-            validateBtn.textContent = "Commande terminée";
-            
-            // Bloquer l'ajout de nouveaux plats
-            remainingItems = 0;
-            updateCartSummary();
-        }, 1000);
+        updateCartSummary();
+        updateCartItems();
+        // Réinitialiser tous les affichages de quantité
+        document.querySelectorAll('.quantity').forEach(el => {
+            el.textContent = '0';
+        });
+        alert(`Tour ${currentRound-1} validé ! Prêt pour le tour ${currentRound}`);
+    } else {
+        alert('Commande finale validée ! Merci pour votre commande.');
     }
 }
-
